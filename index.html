@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Save Delhi's Street Dogs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 10px;
+      background: #fdfdfd;
+    }
+    h1 {
+      text-align: center;
+      color: #e63946;
+      margin-top: 20px;
+    }
+    .banner-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      max-height: 250px;
+      object-fit: cover;
+      margin: 0 auto;
+      border-bottom: 3px solid #d32f2f;
+    }
+    .instructions {
+      border: 2px solid #e63946;
+      background: #ffe5e5;
+      padding: 15px;
+      margin: 20px 0;
+      font-size: 1.1em;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    textarea, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 250px;
+    }
+    .buttons {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-bottom: 20px;
+      flex-direction: column; /* default: stacked on mobile */
+    }
+    button {
+      padding: 12px;
+      font-size: 1.1em;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      width: 100%; /* full width on mobile */
+    }
+    .gmail-btn { background: #d93025; }
+    .mailto-btn { background: #1a73e8; }
+    .copy-btn { background: #6c757d; }
+    button:hover { opacity: 0.9; }
+    @media (min-width: 600px) {
+      .buttons { flex-direction: row; }
+      button { width: auto; }
+    }
+  </style>
+  
+  <link rel="icon" type="image/png" href="logo.jpg">
+</head>
+<body>
+  <h1>🐾 Save Delhi's Street Dogs</h1>
+  <img class="banner-image" src="doggies.avif" alt="Save Street Dogs">
+
+  <div class="instructions">
+    <strong>Why this matters:</strong> The Supreme Court has ordered removal of stray dogs from Delhi streets, which could lead to mass suffering and violation of animal protection laws.<br><br>
+    <strong>How to help:</strong> Fill in your name, review/edit the letter, and send it via Gmail or your email app. Every unique email adds pressure on the court to reconsider.<br>
+    <em>⚡ This is urgent — ACT NOW to protect these animals.</em>
+  </div>
+
+  <label>Your Name:</label>
+  <input type="text" id="userName" placeholder="Your full name" required>
+
+  <label>Letter (you can edit before sending):</label>
+  <textarea id="messageBox"></textarea>
+
+  <div class="buttons">
+    <button class="gmail-btn" onclick="sendGmail()">📨 Send via Gmail</button>
+    <button class="mailto-btn" onclick="sendMailto()">📩 Send via Email App</button>
+    <button class="copy-btn" onclick="copyText()">📋 Copy Letter</button>
+  </div>
+
+  <script>
+    const defaultTemplate = `Honourable Supreme Court of India,
+
+I respectfully write to express my deep concern regarding the recent verdict directing Delhi authorities to remove stray dogs from localities and house them in shelters.
+
+As per The Animal Birth Control (Dogs) Rules, 2001, enacted under the Prevention of Cruelty to Animals Act, 1960, sterilized and vaccinated stray dogs must be released back into the same area from which they were captured, and relocation is explicitly prohibited. The current directive appears to be in direct conflict with these provisions.
+
+With the greatest respect, I wish to submit that even this Honourable Court, as the guardian of the Constitution and laws of India, is bound to act within the framework of the laws enacted by Parliament. No authority, however high, is permitted to override the law.
+
+Delhi-NCR has an extremely high stray dog population. Housing them all in shelters is not only impractical but will also inevitably deprive them of basic amenities such as food, water, and adequate space. This would cause immense suffering and violate their right to humane treatment.
+
+I therefore earnestly request the Honourable Court to kindly reconsider and withdraw this directive, ensuring that the existing laws safeguarding animal welfare are fully upheld. A lawful, humane, and sustainable approach, in accordance with the Animal Birth Control Rules, will best protect both public interest and animal welfare.
+
+With utmost respect,
+[Your Name]`;
+
+    document.getElementById("messageBox").value = defaultTemplate;
+
+    function validateName() {
+      const name = document.getElementById("userName").value.trim();
+      if (!name) {
+        alert("Please enter your full name before sending.");
+        return null;
+      }
+      return name;
+    }
+
+    function sendGmail() {
+      const name = validateName();
+      if (!name) return;
+      const bodyText = document.getElementById("messageBox").value.replace("[Your Name]", name);
+      const subject = "Request for Withdrawal of Recent Orders on Stray Dog Removal";
+      const email = "supremecourt@nic.in";
+      const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(email)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+      window.open(gmailLink, "_blank");
+    }
+
+    function sendMailto() {
+      const name = validateName();
+      if (!name) return;
+      const bodyText = document.getElementById("messageBox").value.replace("[Your Name]", name);
+      const subject = "Request for Withdrawal of Recent Orders on Stray Dog Removal";
+      const email = "supremecourt@nic.in";
+      const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+      window.location.href = mailtoLink;
+    }
+
+    function copyText() {
+      const name = validateName();
+      if (!name) return;
+      const bodyText = document.getElementById("messageBox").value.replace("[Your Name]", name);
+      navigator.clipboard.writeText(bodyText).then(() => {
+        alert("Letter copied to clipboard! Paste it into your email client.");
+      });
+    }
+  </script>
+</body>
+</html>
