@@ -98,23 +98,35 @@
     <button class="copy-btn" onclick="copyText()">📋 Copy Letter</button>
   </div>
 
-  <script>
-    const defaultTemplate = `Honourable Supreme Court of India,
+ <script>
+  const defaultTemplate = `Honourable Supreme Court of India,
 
-I respectfully write to express my deep concern regarding the recent verdict directing Delhi authorities to remove stray dogs from localities and house them in shelters.
+I write to you with utmost respect, but also with deep concern and urgency, regarding the recent verdict directing the removal of stray dogs from Delhi’s streets and their housing in shelters.
 
-As per The Animal Birth Control (Dogs) Rules, 2001, enacted under the Prevention of Cruelty to Animals Act, 1960, sterilized and vaccinated stray dogs must be released back into the same area from which they were captured, and relocation is explicitly prohibited. The current directive appears to be in direct conflict with these provisions.
+This directive is in clear violation of The Animal Birth Control (Dogs) Rules, 2001, enacted under the Prevention of Cruelty to Animals Act, 1960. These Rules explicitly mandate that sterilized and vaccinated street dogs must be returned to the exact location from which they were captured. Relocation is expressly prohibited under Rule 7(9), as it disrupts territorial stability, causes unnecessary suffering, and undermines effective population control.
 
-With the greatest respect, I wish to submit that even this Honourable Court, as the guardian of the Constitution and laws of India, is bound to act within the framework of the laws enacted by Parliament. No authority, however high, is permitted to override the law.
+Beyond the legal conflict, this order will have grave and irreversible consequences:
 
-Delhi-NCR has an extremely high stray dog population. Housing them all in shelters is not only impractical but will also inevitably deprive them of basic amenities such as food, water, and adequate space. This would cause immense suffering and violate their right to humane treatment.
+1. Mass Suffering of Dogs – Delhi has a high stray dog population, and shelters are already overcrowded and under-resourced. Removing all dogs will inevitably result in severe deprivation of food, water, space, and veterinary care, leading to illness, injury, and death.
 
-I therefore earnestly request the Honourable Court to kindly reconsider and withdraw this directive, ensuring that the existing laws safeguarding animal welfare are fully upheld. A lawful, humane, and sustainable approach, in accordance with the Animal Birth Control Rules, will best protect both public interest and animal welfare.
+2. Collapse of Sterilization Programmes – Years of work in sterilization and vaccination will be undone, creating a dangerous gap in canine population control and increasing the risk of rabies outbreaks.
+
+3. Public Safety Risks – Removing established, vaccinated territorial dogs will allow unvaccinated and aggressive dogs from other areas to move in, increasing bite incidents and public panic.
+
+4. Violation of Democratic Principles – Even the highest judicial authority is bound by the Constitution and laws passed by Parliament. Overriding statutory provisions without legislative amendment sets a dangerous precedent for the rule of law.
+
+5. Undermining International Commitments – India is a signatory to international animal welfare guidelines that prohibit indiscriminate culling or displacement. This order contradicts our obligations and harms our global reputation.
+
+I therefore earnestly request this Honourable Court to reconsider and withdraw this directive in full compliance with the Animal Birth Control Rules, 2001. A lawful, humane, and scientifically sound approach—focused on sterilization, vaccination, and community engagement—remains the only sustainable solution that safeguards both public health and animal welfare.
+
+I place my trust in this Honourable Court to uphold the Constitution, protect the law, and prevent needless cruelty.
 
 With utmost respect,
 [Your Name]`;
 
-    document.getElementById("messageBox").value = defaultTemplate;
+  document.getElementById("messageBox").value = defaultTemplate;
+
+
 
     function validateName() {
       const name = document.getElementById("userName").value.trim();
